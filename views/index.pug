@@ -1,0 +1,10 @@
+extends layout
+
+
+block content
+  - var orders = []
+  .container 
+    h2 KAIZEN
+  .container 
+    each order in orders
+      p= order
