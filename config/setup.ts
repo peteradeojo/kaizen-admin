@@ -3,6 +3,8 @@ import mongoose from 'mongoose';
 import session from 'express-session';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import passport from 'passport';
+import MongoStore from 'connect-mongo';
 
 const debug = require('debug')('server:setup');
 
@@ -33,7 +35,12 @@ module.exports = (app: Express) => {
       secret: process.env.SECRET!,
       saveUninitialized: false,
       resave: false,
+      store: MongoStore.create({ mongoUrl: process.env.MONGO_URL! }),
     })
   );
   app.use(cookieParser());
+
+  app.use(passport.initialize());
+  app.use(passport.session());
+  require('../config/passport')(passport);
 };
