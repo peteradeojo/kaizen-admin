@@ -6,7 +6,7 @@ const Product = require('../models/Product');
 module.exports = () => {
   router.get('/', async (req, res) => {
     // @ts-ignore
-    const products = await Product.find();
+    const products = await Product.find({status: 1}).exec();
     res.render('products', { products });
   });
   router.get('/add', async (req, res) => {
