@@ -18,6 +18,6 @@ $(() => {
     });
   };
   $('#search-prod-list').on('keyup', function () {
-    filterProducts(this.value);
+    filterProducts(this.value.toLowerCase());
   });
 });

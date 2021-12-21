@@ -7,7 +7,7 @@ import path from 'path';
 const debug = require('debug')('server:setup');
 
 module.exports = (app: Express) => {
-  if (app.get('env') !== 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     require('dotenv').config();
     app.use(require('morgan')('dev'));
   }

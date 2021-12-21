@@ -27,6 +27,11 @@ const productSchema = new Schema({
     type: Date,
     required: true,
   },
+  status: {
+    type: Number,
+    enum: [0, 1, 2],
+    default: 1,
+  },
 });
 
 module.exports = mongoose.model('product', productSchema);
