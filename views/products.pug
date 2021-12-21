@@ -1,0 +1,28 @@
+extends layout
+
+block css-links 
+  link(rel="stylesheet" href="/css/index.css")
+
+block content 
+  - const IMG_HOST_URL = "http://localhost:5000"
+  .container 
+    .row
+      .col.s12
+        .input-field
+          input#search-prod-list(type='text')
+          label(for="search-prod-list") Search
+      each prod in products
+        .col.s12.m4.product-display
+          .card
+            .card-image.waves-effect.waves-light
+              img(src=IMG_HOST_URL + prod.images[0], alt="").activator
+              span.card-title.activator= prod.name
+            .card-reveal
+              span.card-title
+                | #{prod.name}
+                i.material-icons.right close
+              p= "Price: \u20a6" +prod.price
+              p= "Collection: " + (prod.collectionName ? prod.collectionName: 'No collection attached.')
+
+block js-links 
+  script(src="/js/product_page.js") 

@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cross-env DEBUG=server,server:* nodemon server.ts"
+    "dev": "cross-env DEBUG=server,server:* nodemon server.ts",
+    "start:css": "sass -w src:public/css --style compressed",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -27,11 +29,12 @@
     "@types/debug": "^4.1.7",
     "@types/express": "^4.17.13",
     "@types/express-session": "^1.17.4",
+    "@types/jquery": "^3.5.10",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.15",
-    "sass": "^1.45.0",
+    "sass": "^1.45.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },

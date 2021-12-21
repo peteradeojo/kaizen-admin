@@ -8,6 +8,7 @@ require('./config/setup')(app);
 
 // Routes
 app.use('/', require('./routes/index')());
+app.use('/products', require('./routes/products')());
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   if (err) {
