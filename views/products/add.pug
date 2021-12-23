@@ -1,8 +1,28 @@
 extends ../layout
 
+block css-links
+  link(rel="stylesheet" href="/css/add_product.css")
+
 block content
   .container.section
-    form(action="" method="post")
-      .input-field 
-        label(for="#name") Title 
-        input#name(type="text" name="name")
+    h3 Add New Product
+    form(action="" method="post" enctype="multipart/form-data")
+      .row
+        .input-field.col.s12.m6
+          label(for="name") Title 
+          input#name(type="text" name="name" required)
+        .input-field.col.s12.m6
+          input#title_short(type="text" placeholder='title text' disabled required).disabled
+        .input-field.col.s12.m3
+          label(for="price") Price
+          input#price(type="number" name="price" required)
+        .col.s12.m6.row
+          .input-field.col.s6
+            label(for="tag-text") Add A Tag
+            input#tag-text(type="text")
+            button(type='button')#add-tag.btn-floating.red
+              i.material-icons add
+          ul.col.s6#tag-list
+
+block js-links 
+  script(src="/js/add_product.js")

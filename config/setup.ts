@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import path from 'path';
 import passport from 'passport';
 import MongoStore from 'connect-mongo';
+import fileUpload from 'express-fileupload';
 
 const debug = require('debug')('server:setup');
 
@@ -39,6 +40,11 @@ module.exports = (app: Express) => {
     })
   );
   app.use(cookieParser());
+  app.use(
+    fileUpload({
+      useTempFiles: true,
+    })
+  );
 
   app.use(passport.initialize());
   app.use(passport.session());

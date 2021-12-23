@@ -27,6 +27,8 @@ block content
               p= "Price: \u20a6" +prod.price
               p= "Collection: " + (prod.collectionName ? prod.collectionName: 'No collection attached.')
               p= "Categories: " + prod.category.join(", ")
+              p 
+                a(href="/products/"+prod.idValue) Link
 
 block js-links 
   script(src="/js/product_page.js") 
