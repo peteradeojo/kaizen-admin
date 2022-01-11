@@ -32,6 +32,7 @@ const productSchema = new Schema({
     enum: [0, 1, 2],
     default: 1,
   },
+  quantity: Number,
 });
 
 module.exports = mongoose.model('product', productSchema);

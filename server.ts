@@ -9,6 +9,8 @@ app.disable('x-powered-by');
 
 require('./config/setup')(app);
 
+// app.use((err, req, res, next) => {});
+
 app.get('/auth', (req, res) => {
   res.render('auth');
 });
@@ -40,7 +42,8 @@ app.use('/products', require('./routes/products')());
 
 app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   if (err) {
-    return res.status(500).send(err.stack);
+    debug(err);
+    return res.status(500).send(err);
   }
   return next();
 });

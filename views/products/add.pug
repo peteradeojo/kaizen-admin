@@ -6,23 +6,59 @@ block css-links
 block content
   .container.section
     h3 Add New Product
-    form(action="" method="post" enctype="multipart/form-data")
+    form#add-product-form(action="" method="post" enctype="multipart/form-data")
       .row
         .input-field.col.s12.m6
           label(for="name") Title 
           input#name(type="text" name="name" required)
+
         .input-field.col.s12.m6
           input#title_short(type="text" placeholder='title text' disabled required).disabled
+
         .input-field.col.s12.m3
           label(for="price") Price
           input#price(type="number" name="price" required)
-        .col.s12.m6.row
-          .input-field.col.s6
+
+        .row
+          .input-field.col.s12.m6
             label(for="tag-text") Add A Tag
             input#tag-text(type="text")
-            button(type='button')#add-tag.btn-floating.red
-              i.material-icons add
-          ul.col.s6#tag-list
+          .col.s12.m3
+            #tag-list
+          //- button(type='button')#add-tag.btn-floating.red
+            i.material-icons add
+
+        //- Colors
+        .row 
+          .input-field.col.s12.m6
+            label(for="colors") Colors
+            input#colors(type="text")
+          .col.s12.m6
+            #color-list
+          //- button(type="button")#add-color.btn-floating
+            i.material-icons add
+
+        .input-field.col.s12
+          label(for="sizes") Sizes
+          select#sizes(name="sizes" multiple required)
+            option(value="xs,extra-small") Extra-Small
+            option(value="s,small") Small
+            option(value="m,medium") Medium
+            option(value="l,large") Large
+            option(value="xl,extra-large") Extra-Large
+            option(value="xxl,xxtra-large") Xxtra-Large
+
+        .input-field.col.s12
+          h5 Select display images
+          input#images(type="file" name="pics" multiple accept='.jpg,.png,.gif')
+
+        .input-field.col.s12 
+          button#add-product(type="submit").btn.blue Submit
+
 
 block js-links 
+  script.
+    $(() => {
+      $('select').formSelect();
+    });
   script(src="/js/add_product.js")
