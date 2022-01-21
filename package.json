@@ -6,22 +6,45 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "cross-env DEBUG=app,app:* nodemon index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "start:css": "sass -w scss:public/css --style=compressed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.25.0",
     "bcrypt": "^5.0.1",
+    "bootstrap": "^5.1.3",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "debug": "^4.3.3",
     "express": "^4.17.2",
     "express-fileupload": "^1.2.1",
     "express-session": "^1.17.2",
+    "jquery": "^3.6.0",
     "mongoose": "^6.1.7",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^14.2.0",
+    "eslint": "^8.7.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "sass": "^1.49.0"
+  },
+  "nodemonConfig": {
+    "delay": "1000",
+    "ignore": [
+      "public",
+      "*.json"
+    ],
+    "events": {
+      "restart": "clear"
+    }
   }
 }

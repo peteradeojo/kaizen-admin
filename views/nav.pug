@@ -1,0 +1,18 @@
+//- p= user != undefined
+nav.navbar.navbar-expand-sm.navbar-dark.bg-dark
+  .container-fluid
+    a.navbar-brand(href="/")  KAIZEN
+    button.navbar-toggler(data-bs-toggle='collapse' data-bs-target='#navbar' type='button')
+      span.navbar-toggler-icon
+    .navbar-collapse.collapse#navbar 
+      ul.navbar-nav.ms-auto 
+        if user
+          li.nav-item
+            a.nav-link(href="/products") Products
+          li.nav-item
+            a.nav-link(href="") Link 2
+          li.nav-item
+            a.nav-link(href="/auth/logout") Logout
+        else 
+          li.nav-item 
+            a.nav-link(href="/auth/login") Login

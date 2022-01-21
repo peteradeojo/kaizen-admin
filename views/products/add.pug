@@ -1,0 +1,51 @@
+extends ../layout
+
+block styles 
+  link(rel="stylesheet" href="/css/index.css")
+
+block content 
+  .container
+    h1 Add New Product 
+    form#product-form(action="" method="post")
+      .form-group.my-2
+        label(for="name") Name
+        input#name(type="text" name="name" required).form-control
+      .form-group.my-2
+        label(for="title") Title
+        input#title(type="text" name="title" readonly).form-control
+      .form-group.my-2 
+        label(for="colors-input") Colors
+        #colors.d-flex.flex-wrap.mb-2
+        input#colors-input(type="text" placeholder='Type color and hit enter').form-control
+        button#add-color-btn(type='button').btn.btn-sm.btn-success Add Color
+      .form-group.my-2 
+        label(for="tags-input") Tags 
+        #tags.d-flex.flex-wrap.mb-2 
+        input#tags-input(type="text" placeholder="type a tag and hit enter").form-control
+        button.btn.btn-sm.btn-success#add-tag(type='button') Add Tag
+      .form-group.my-2 
+        label Sizes
+        br
+        .form-check.form-check-inline
+          input.form-check-input#small(type='checkbox' name='sizes' value='small')
+          label.form-check-label(for='small') Small
+        .form-check.form-check-inline
+          input.form-check-input#medium(type='checkbox' name='sizes' value='medium')
+          label.form-check-label(for='medium') Medium
+        .form-check.form-check-inline
+          input.form-check-input#large(type='checkbox' name='sizes' value='large')
+          label.form-check-label(for='large') Large
+      .form-group 
+        label(for="files") Images 
+        input#files(type="file" name="images" multiple accept=".jpg,.png").form-control
+      .form-group 
+        label(for="price") Price 
+        input#files(type='number' name='price' required).form-control
+      .form-group 
+        label(for="quantity") Quantity 
+        input#quantity(type="number" name="quantity" required).form-control
+      .form-group.my-2 
+        button(type='submit').btn.btn-dark Submit
+
+block scripts 
+  script(src="/js/addproduct.js") 

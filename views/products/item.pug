@@ -1,0 +1,18 @@
+extends ../layout
+
+mixin thumb(img)
+  .col-3
+    img(src=img, alt="").img-fluid
+
+block content 
+  .container 
+    .border.rounded.rounded-lg.p-2
+      h1= item.name
+      p.small
+        u= item.idValue
+
+      p= "Quantity: " +item.quantity
+      p= "Price: "+ item.price
+      .row
+        each img in item.images 
+          +thumb(img)

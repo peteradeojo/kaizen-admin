@@ -1,0 +1,12 @@
+extends ../layout
+
+include ../components/product-card
+
+block content 
+  .container-fluid.mt-4
+    .d-flex.mb-3 
+      a.ms-auto.btn.btn-primary(href="/products/add") Add Product
+    .row
+      each p in products
+        .col-sm-4 
+          +card(p)

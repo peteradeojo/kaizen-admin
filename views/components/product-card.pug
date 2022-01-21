@@ -1,0 +1,6 @@
+mixin card(args)
+  .card(style='border-radius: 28px 28px 14px 14px')
+    img.card-img-top(src="http://localhost:4041"+args.images[0], alt="" style='border-radius: inherit').bg-danger
+    .card-body 
+      .card-title= args.name
+      a.btn.btn-primary(href="/products/"+args.idValue) View 
