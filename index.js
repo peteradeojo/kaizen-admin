@@ -36,6 +36,7 @@ app.use((req, res, next) => {
 app.use('/auth', require('./routes/auth.js')());
 app.use('/', require('./routes/index')());
 app.use('/products', require('./routes/products')());
+app.use('/api', require('./routes/api')());
 
 const port = process.env.PORT || 4041;
 

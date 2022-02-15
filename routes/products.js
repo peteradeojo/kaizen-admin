@@ -12,9 +12,6 @@ const fetchRandomNames = async (num, len) => {
     );
     const { data } = res;
     const names = data.split('\n', num);
-    // const resolved = names.map((name) => name.trim());
-    // console.log(resolved);
-    // return resolved;
     return names;
   } catch (err) {
     console.log(err);

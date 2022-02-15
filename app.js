@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const fileUpload = require('express-fileupload');
 const MongoStore = require('connect-mongo');
+const cors = require('cors');
 const debug = require('debug')('app');
 
 const app = express();
@@ -13,6 +14,7 @@ if (app.get('env') !== 'production') {
   app.use(require('morgan')('dev'));
 }
 
+app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
